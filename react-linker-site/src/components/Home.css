@@ -1,0 +1,53 @@
+
+
+
+.bg-box{
+    width: 670px; /* Set the width */
+    height: 570px; /* Set the height */
+    border: 2px solid #000; /* Add a border */
+    background-color: #295c80; /* Add a background color */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    border-radius: 25px; /* Optional rounded corners */
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+
+
+}
+
+.profile-box{
+    width:200px;
+    height:200px;
+    border:1px solid #000000;
+    background: #91d3ff;
+    margin-left: 20px; /* Add some spacing from the left edge */
+    align-self: flex-start; /* Align to the top inside the main box */
+    margin-top: 20px;
+    border-radius: 25px; /* Optional rounded corners */
+}
+
+
+.icons-box{
+    width:200px;
+    height:200px;
+    align-content: center;
+    background: #91d3ff;
+
+}
+
+
+
+
+
+/* Optimization for phone */
+@media (min-width: 768px)
+    and (max-width:1024px)
+    and ( orientation: portrait){
+
+}
+
+@media (min-width: 768px)
+    and (max-width:1024px)
+    and ( orientation: landscape){
+
+}
