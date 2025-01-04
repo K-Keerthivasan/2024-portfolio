@@ -1,29 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
+// File imports
 import './App.css'
+import Linker from "./frontend/Linker.jsx";
+import BackgroundImage from "./assets/background.svg"
+
+//Library imports
 import {
     BrowserRouter as Router,
     Route,
     Routes,
-} from "react-router-dom"
+ } from "react-router-dom";
 
-import Home from './components/Home';
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
 
-      <Router>
-          <div className="App">
-              <Routes>
-                  <Route path="/" element={<Home/>}/>
-              </Routes>
+      <div
+          className="app-background"
+            style={{
+                backgroundImage: `url(${BackgroundImage})`,
+            }}
+      >
+          <div className="app-container">
+              <Linker/>
           </div>
+      </div>
 
-      </Router>
   )
 }
 

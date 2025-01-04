@@ -1,4 +1,38 @@
-#root {
+ /* This part is to reset the canvas */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+  }
+
+
+   /* To set up the application background 
+   and here the content is centered to the screen */
+.app-background {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+ /* This is just the config of the container */
+.app-container {
+    width: 320px;
+    padding: 30px;
+    border-radius:10px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent container */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+ 
