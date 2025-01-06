@@ -1,0 +1,131 @@
+
+
+/* Navbar */
+.navbar {
+    background-color: rgba(28, 28, 46, 0.8) !important; /* Semi-transparent background */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    backdrop-filter: blur(5px); /* Optional: Adds a slight blur effect */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.navbar :hover{
+    background-color: rgba(0, 0, 139, 0.1) !important; /* Lighter transparency on hover */
+
+}
+
+/* Ensure toolbar content is properly aligned and spans the width */
+.navbar-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Padding for spacing on left and right */
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+/* Body reset */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Logo Styles */
+.navbar-logo {
+    font-size: 2.5rem !important;
+    font-weight: 600; /* Adjust weight for boldness */
+    font-family: 'Dancing Script', cursive !important; /* Cursive font for the logo */
+    color: #ff99ff;
+    cursor: pointer;
+}
+
+/* Desktop Menu Styles */
+.navbar-desktop-menu {
+    display: flex;
+    gap: 20px;
+    margin-left: auto; /* Push the menu to the right */
+
+}
+
+.navbar-menu-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    color: #fff ;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif !important; /* Clean, modern font */
+    text-transform: none;
+    cursor: pointer;
+    position: relative; /* Position relative for the pseudo-element */
+    transition: color 0.3s ease;
+}
+
+.navbar-menu-button::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute;
+    bottom: -5px; /* Position it slightly below the text */
+    left: 0;
+    width: 0; /* Initially hidden */
+    height: 3px; /* Line height */
+    background-color: #f3a6ff; /* Purple line color */
+    transition: width 0.3s ease; /* Smooth transition */
+}
+
+.navbar-menu-button:hover {
+    color: #f3a6ff; /* Change text color on hover */
+}
+
+.navbar-menu-button:hover::after {
+    width: 100%; /* Expand the line on hover */
+}
+
+/* Star Icon */
+.navbar-star-icon {
+    color: #0066ff !important;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar-star-icon:hover {
+    color: #f3a6ff;
+}
+
+/* Mobile Menu Styles */
+.navbar-mobile-menu {
+    display: none;
+}
+
+.navbar-menu-icon {
+    color: #ff99ff !important;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu-icon:hover {
+    color: #f3a6ff;
+}
+
+/* Responsive Design */
+@media (max-width: 960px) {
+    .navbar-desktop-menu {
+        display: none;
+    }
+
+    .navbar-mobile-menu {
+        display: flex;
+    }
+
+    .navbar-star-icon{
+        margin-left: auto !important;
+    }
+}
