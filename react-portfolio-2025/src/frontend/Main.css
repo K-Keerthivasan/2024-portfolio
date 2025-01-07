@@ -1,0 +1,6 @@
+.app-container {
+    min-height: calc(100vh - 80px); /* Adjust based on your navbar and footer height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

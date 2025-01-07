@@ -7,15 +7,19 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
-import WorkIcon from '@mui/icons-material/Work';
-import DescriptionIcon from '@mui/icons-material/Description';
-import ArticleIcon from '@mui/icons-material/Article';
-import StarIcon from '@mui/icons-material/Star';
+import Person2Icon from '@mui/icons-material/Person2';
+import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+import TopicIcon from '@mui/icons-material/Topic';
 import Box from '@mui/material/Box';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import CodeOffIcon from '@mui/icons-material/CodeOff';
+import FastForwardIcon from '@mui/icons-material/FastForward';
+
 
 import '@fontsource/dancing-script'; // For logo
-import '@fontsource/poppins'; // For menu items
+import '@fontsource/poppins';
+import {Link} from "@mui/material"; // For menu items
 
 const Navbar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,11 +33,11 @@ const Navbar = () => {
     };
 
     const menuItems = [
-        { name: 'Home', icon: <HomeIcon /> },
-        { name: 'About', icon: <PersonIcon /> },
-        { name: 'Projects', icon: <WorkIcon /> },
-        { name: 'Resume', icon: <DescriptionIcon /> },
-        { name: 'Blogs', icon: <ArticleIcon /> },
+        { name: 'Home', icon: <HomeIcon />, link: "/" },
+        { name: 'About', icon: <Person2Icon />, link: "/about" },
+        { name: 'Projects', icon: <WorkHistoryIcon />,  link: "/projects" },
+        { name: 'Resume', icon: <SummarizeIcon />, link: "/resume"},
+        { name: 'Blogs', icon: <TopicIcon />, link: "/" },
     ];
 
     return (
@@ -44,7 +48,7 @@ const Navbar = () => {
                 backdropFilter: 'blur(5px)',
                 transition: 'background-color 0.3s ease',
                 '&:hover': {
-                    backgroundColor: 'rgba(0, 0, 139, 0.1)',
+                    backgroundColor: 'rgba(8,8,73,0.1)',
                 },
             }}
         >
@@ -58,17 +62,27 @@ const Navbar = () => {
             >
                 {/* Logo */}
                 <Typography
+                    component={Link}
+                    href="https://github.com"
                     variant="h5"
                     sx={{
                         fontFamily: 'Dancing Script, cursive',
                         fontSize: '2.5rem',
                         fontWeight: 600,
-                        color: '#ff99ff',
+                        color: '#80ceff', // Default text color (light blue)
                         cursor: 'pointer',
+                        display: 'inline-block', // Allows proper hover effects on text
+                        transition: 'all 0.3s ease', // Smooth transition for hover effects
+                        '&:hover': {
+                            textShadow: '0 0 10px #80ceff, 0 0 10px #80ceff', // Glow effect directly on the text
+                        },
                     }}
                 >
                     KK
                 </Typography>
+
+
+
 
                 {/* Menu and Star Icon Group */}
                 <Box
@@ -80,6 +94,7 @@ const Navbar = () => {
                     }}
                 >
                     {/* Desktop Menu */}
+
                     <Box
                         sx={{
                             display: { xs: 'none', md: 'flex' },
@@ -98,7 +113,7 @@ const Navbar = () => {
                                         left: 0,
                                         width: 0, // Initially hidden
                                         height: '3px', // Thickness of the line
-                                        backgroundColor: '#f3a6ff', // Line color
+                                        backgroundColor: '#80ceff', // Line color
                                         transition: 'width 0.3s ease', // Smooth transition
                                     },
                                     '&:hover::after': {
@@ -107,13 +122,15 @@ const Navbar = () => {
                                 }}
                             >
                                 <IconButton
+                                    component={Link}
+                                    href={item.link}
                                     sx={{
                                         color: '#fff',
                                         display: 'flex',
                                         alignItems: 'center',
                                         gap: '5px',
                                         transition: 'color 0.3s ease',
-                                        '&:hover': { color: '#f3a6ff' },
+                                        '&:hover': { color: '#80ceff' },
                                     }}
                                 >
                                     {item.icon}
@@ -135,13 +152,53 @@ const Navbar = () => {
                     {/* Star Icon */}
                     <IconButton
                         sx={{
-                            color: '#0066ff',
+                            color: '#b2e1ff',
                             transition: 'color 0.3s ease',
-                            '&:hover': { color: '#f3a6ff' },
+                            '&:hover': {
+                                color: '#00c4ff',
+                            },
                         }}
                     >
-                        <StarIcon />
+                        <ContactMailIcon />
                     </IconButton>
+
+                    {/* CodeOffIcon Icon */}
+                    <IconButton
+                        sx={{
+                            color: '#b2e1ff',
+                            transition: 'color 0.3s ease',
+                            '&:hover': {
+                                color: '#00c4ff',
+                            },
+                        }}
+                    >
+                        <CodeOffIcon />
+                    </IconButton>
+
+                    <IconButton
+                        component={Link}
+                        href="https://www.youtube.com/"
+                        sx={{
+                            color: '#ff0000',
+                            transition: 'color 0.3s ease', // Smooth color transition
+                            '&:hover': {
+                                color: '#ff0000', // Light red color on hover
+                                svg: {
+                                    stroke: '#ffb2b2', // Add red stroke on hover
+                                    strokeWidth: 2, // Stroke thickness,
+                                    textShadow: '0 0 10px #ff0000, 0 0 20px #ff0000', // Glow effect for the icon
+
+                                },
+                            },
+                            svg: {
+                                stroke: 'none', // Default: No stroke
+                            },
+                        }}
+                    >
+                        <FastForwardIcon />
+                    </IconButton>
+
+
                 </Box>
 
                 {/* Mobile Menu */}
@@ -153,9 +210,9 @@ const Navbar = () => {
                     <IconButton
                         onClick={handleMenuClick}
                         sx={{
-                            color: '#ff99ff',
+                            color: '#80ceff',
                             transition: 'color 0.3s ease',
-                            '&:hover': { color: '#f3a6ff' },
+                            '&:hover': { color: '#80ceff' },
                         }}
                     >
                         <MenuIcon />

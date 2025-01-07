@@ -6,20 +6,21 @@ const Footer = () => {
         <Box
             component="footer"
             sx={{
-                backgroundColor: '#1c1c2e',
+                backgroundColor: 'rgba(28, 28, 46, 0.8)',
                 color: '#ffffff',
                 display: 'flex',
                 flexDirection: { xs: 'column', md: 'row' },
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '20px 40px',
+                padding: '10px 40px',
                 position: 'absolute',
                 bottom: 0,
                 left: 0,
                 width: '100%',
+                backdropFilter: 'blur(5px)',
                 transition: 'background-color 0.3s ease', // Smooth transition for hover effect
                 '&:hover': {
-                    backgroundColor: 'rgba(28, 28, 46, 0.8)', // Semi-transparent on hover
+                    backgroundColor: 'rgba(8,8,73,0.1)',
                 },
             }}
         >
@@ -42,7 +43,7 @@ const Footer = () => {
                     marginBottom: { xs: '10px', md: '0' },
                 }}
             >
-                Copyright © 2025 SB
+                Copyright © 2025 KK
             </Typography>
 
             {/* Right Section */}
@@ -52,7 +53,7 @@ const Footer = () => {
                     href="https://github.com"
                     target="_blank"
                     rel="noopener"
-                    sx={{ color: '#ffffff', '&:hover': { color: '#a78bfa' } }}
+                    sx={{ color: '#ffffff', '&:hover': { color: '#80ceff' } }}
                 >
                     <GitHub />
                 </IconButton>
@@ -61,7 +62,7 @@ const Footer = () => {
                     href="https://twitter.com"
                     target="_blank"
                     rel="noopener"
-                    sx={{ color: '#ffffff', '&:hover': { color: '#a78bfa' } }}
+                    sx={{ color: '#ffffff', '&:hover': { color: '#80ceff' } }}
                 >
                     <Twitter />
                 </IconButton>
@@ -70,7 +71,7 @@ const Footer = () => {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener"
-                    sx={{ color: '#ffffff', '&:hover': { color: '#a78bfa' } }}
+                    sx={{ color: '#ffffff', '&:hover': { color: '#80ceff' } }}
                 >
                     <LinkedIn />
                 </IconButton>
@@ -79,7 +80,7 @@ const Footer = () => {
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener"
-                    sx={{ color: '#ffffff', '&:hover': { color: '#a78bfa' } }}
+                    sx={{ color: '#ffffff', '&:hover': { color: '#80ceff' } }}
                 >
                     <Instagram />
                 </IconButton>
