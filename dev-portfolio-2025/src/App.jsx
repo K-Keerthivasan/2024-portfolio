@@ -16,6 +16,7 @@ import NavBar from './frontend/Navbar.jsx'
 
 import BackgroundImage from "./assets/background.svg"
 import Footer from "./frontend/Footer.jsx";
+import Resume from "./frontend/components/Resume.jsx";
 
 function App() {
 
@@ -37,6 +38,8 @@ function App() {
 
                       <Route path="/" element={<Home/>}/>
                       <Route path="/about" element={<About/>}/>
+                      <Route path="/projects" element={<About/>}/>
+                      <Route path="/resume" element={<Resume/>}/>
 
 
                   </Routes>
