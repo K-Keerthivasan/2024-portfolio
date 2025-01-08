@@ -11,7 +11,6 @@ import {
 import './App.css'
 import Home from './frontend/components/Home/Home.jsx';
 import About from './frontend/components/About/About.jsx';
-import Contact from './frontend/components/Contact.jsx'
 
 import NavBar from './frontend/Navbar.jsx'
 
@@ -33,12 +32,11 @@ function App() {
 
               <div className="app-container">
                   <NavBar/>
+
                   <Routes>
-                      {/* Home Route */}
+
                       <Route path="/" element={<Home/>}/>
-                      <Route path="/about" element={<About/>}>
-                          <Route path="contact" element={<Contact/>}/>
-                      </Route>
+                      <Route path="/about" element={<About/>}/>
 
 
                   </Routes>
