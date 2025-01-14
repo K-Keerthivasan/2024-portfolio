@@ -22,38 +22,34 @@ import ProjectsSection from "./frontend/components/Projects/Project.jsx"
 
 function App() {
 
-  return (
+    return (
 
 
-      <Router>
-          <div
-              className="app-background"
-              style={{
-                  backgroundImage: `url(${BackgroundImage})`,
-              }}
-          >
+        <Router>
+            <div
+                className="app-background"
+                style={{
+                    backgroundImage: `url(${BackgroundImage})`,
+                }}
+            >
 
-              <div className="app-container">
-                  <NavBar/>
-
-                  <Routes>
-
-                      <Route path="/" element={<Home/>}/>
-                      <Route path="/about" element={<About/>}/>
-                      <Route path="/projects" element={<ProjectsSection/>}/>
-                      <Route path="/resume" element={<Resume/>}/>
-
-
-                  </Routes>
-                  <Footer/>
-              </div>
+                <div className="app-container">
+                    <NavBar/>
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/about" element={<About/>}/>
+                        <Route path="/projects" element={<ProjectsSection/>}/>
+                        <Route path="/resume" element={<Resume/>}/>
+                    </Routes>
+                    <Footer/>
+                </div>
 
 
-          </div>
+            </div>
 
-      </Router>
+        </Router>
 
-  )
+    )
 }
 
 export default App

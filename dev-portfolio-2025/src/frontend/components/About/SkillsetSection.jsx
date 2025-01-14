@@ -47,9 +47,10 @@ const SkillsetSection = () => {
                 background: "rgba(0, 0, 0, 0.7)", // Darker background with opacity
                 backdropFilter: "blur(10px)", // Blurred effect
                 borderRadius: "16px",
-                marginBottom: { xs: "80px", md: "100px" }, // Extra space below for mobile
+                marginBottom: { xs: "180px", md: "200px" }, // Extra space below for mobile
                 mb: 6,
                 boxShadow: "0 10px 20px rgba(0, 0, 0, 0.5)",
+
             }}
         >
             {/* Professional Skillset Section */}

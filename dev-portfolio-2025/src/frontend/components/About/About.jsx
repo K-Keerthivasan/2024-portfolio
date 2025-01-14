@@ -17,6 +17,7 @@ const About = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+
             }}
         >
             {/* About Me Section */}
