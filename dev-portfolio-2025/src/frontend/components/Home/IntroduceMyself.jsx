@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import image1 from "../../../assets/Svg_1.svg"; // Replace with your SVG file path
 

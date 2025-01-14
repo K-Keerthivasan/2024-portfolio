@@ -18,6 +18,8 @@ import BackgroundImage from "./assets/background.svg"
 import Footer from "./frontend/Footer.jsx";
 import Resume from "./frontend/components/Resume.jsx";
 
+import ProjectsSection from "./frontend/components/Projects/Project.jsx"
+
 function App() {
 
   return (
@@ -38,7 +40,7 @@ function App() {
 
                       <Route path="/" element={<Home/>}/>
                       <Route path="/about" element={<About/>}/>
-                      <Route path="/projects" element={<About/>}/>
+                      <Route path="/projects" element={<ProjectsSection/>}/>
                       <Route path="/resume" element={<Resume/>}/>
 
 

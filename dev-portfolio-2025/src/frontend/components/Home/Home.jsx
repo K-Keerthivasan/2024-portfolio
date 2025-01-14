@@ -47,7 +47,7 @@ const Home = () => {
                             marginBottom: 1,
                         }}
                     >
-                        Hi There! 👋 HIii Keerthivasan
+                        Hi There! 👋 I'm Keerthi
                     </Typography>
                     <Typewriter texts={roles} typingSpeed={100} pauseTime={2000} />
                 </Box>
