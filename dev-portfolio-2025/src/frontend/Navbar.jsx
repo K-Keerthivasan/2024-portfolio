@@ -13,9 +13,8 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 import TopicIcon from '@mui/icons-material/Topic';
 import Box from '@mui/material/Box';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import CodeOffIcon from '@mui/icons-material/CodeOff';
 import FastForwardIcon from '@mui/icons-material/FastForward';
-import { Link } from '@mui/material'; // For links
+import { Link } from 'react-router-dom'; // Corrected import for Link
 import ContactOverlay from './components/Contact/ContactOverlay.jsx'; // Import the ContactOverlay component
 
 const Navbar = () => {
@@ -95,33 +94,33 @@ const Navbar = () => {
                         }}
                     >
                         {/* Desktop Menu */}
-                        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '20px' }}>
+                        <Box sx={{display: {xs: 'none', md: 'flex'}, gap: '20px'}}>
                             {menuItems.map((item) => (
-                                <IconButton
-                                    key={item.name}
-                                    component={Link}
-                                    href={item.link}
-                                    sx={{
-                                        color: '#fff',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '5px',
-                                        '&:hover': { color: '#80ceff' },
-                                    }}
-                                >
-                                    {item.icon}
-                                    <Typography
+                                <Link to={item.link} key={item.name} style={{textDecoration: 'none', color: 'inherit'}}>
+                                    <IconButton
                                         sx={{
-                                            fontFamily: 'Poppins, sans-serif',
-                                            fontWeight: 'bold',
-                                            fontSize: '1rem',
+                                            color: '#fff',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '5px',
+                                            '&:hover': {color: '#80ceff'},
                                         }}
                                     >
-                                        {item.name}
-                                    </Typography>
-                                </IconButton>
+                                        {item.icon}
+                                        <Typography
+                                            sx={{
+                                                fontFamily: 'Poppins, sans-serif',
+                                                fontWeight: 'bold',
+                                                fontSize: '1rem',
+                                            }}
+                                        >
+                                            {item.name}
+                                        </Typography>
+                                    </IconButton>
+                                </Link>
                             ))}
                         </Box>
+
 
                         {/* ContactMailIcon */}
                         <IconButton
@@ -137,53 +136,44 @@ const Navbar = () => {
                                 },
                             }}
                         >
-                            <ContactMailIcon />
+                            <ContactMailIcon/>
                         </IconButton>
 
-                        {/* CodeOffIcon */}
-                        <IconButton
-                            sx={{
-                                color: '#b2e1ff',
-                                transition: 'color 0.3s ease',
-                                '&:hover': {
-                                    color: '#00c4ff',
-                                },
-                            }}
-                        >
-                            <CodeOffIcon />
-                        </IconButton>
 
                         {/* FastForwardIcon for YouTube */}
-                        <IconButton
-                            component={Link}
-                            href="https://www.youtube.com/"
-                            sx={{
-                                color: '#ff0000',
-                                transition: 'color 0.3s ease',
-                                '&:hover': {
+                        <a href="https://kk-film-portfolio.web.app/" target="_blank" rel="noopener noreferrer"
+                           style={{textDecoration: 'none', color: 'inherit'}}>
+                            <IconButton
+                                sx={{
                                     color: '#ff0000',
-                                    svg: {
-                                        stroke: '#ffb2b2',
-                                        strokeWidth: 2,
-                                        textShadow: '0 0 10px #ff0000, 0 0 20px #ff0000',
+                                    transition: 'color 0.3s ease',
+                                    '&:hover': {
+                                        color: '#ff0000',
+                                        svg: {
+                                            stroke: '#ffb2b2',
+                                            strokeWidth: 2,
+                                            textShadow: '0 0 10px #ff0000, 0 0 20px #ff0000',
+                                        },
                                     },
-                                },
-                                svg: {
-                                    stroke: 'none',
-                                },
-                            }}
-                        >
-                            <FastForwardIcon />
-                        </IconButton>
+                                    svg: {
+                                        stroke: 'none',
+                                    },
+                                }}
+                            >
+                                <FastForwardIcon/>
+                            </IconButton>
+                        </a>
+
+
                     </Box>
 
                     {/* Mobile Menu */}
-                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
                             onClick={handleMenuClick}
-                            sx={{ color: '#80ceff', transition: 'color 0.3s ease' }}
+                            sx={{color: '#80ceff', transition: 'color 0.3s ease'}}
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             anchorEl={anchorEl}
@@ -191,13 +181,11 @@ const Navbar = () => {
                             onClose={handleMenuClose}
                         >
                             {menuItems.map((item) => (
-                                <MenuItem
-                                    key={item.name}
-                                    onClick={handleMenuClose}
-                                    sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}
-                                >
-                                    {item.icon}
-                                    {item.name}
+                                <MenuItem key={item.name} onClick={handleMenuClose}>
+                                    <Link to={item.link} style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                        {item.icon}
+                                        {item.name}
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
