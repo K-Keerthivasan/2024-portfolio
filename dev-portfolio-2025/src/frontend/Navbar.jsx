@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -11,15 +11,23 @@ import Person2Icon from '@mui/icons-material/Person2';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import TopicIcon from '@mui/icons-material/Topic';
+import CloseIcon from '@mui/icons-material/Close'; // Sidebar close button
 import Box from '@mui/material/Box';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import FastForwardIcon from '@mui/icons-material/FastForward';
-import { Link } from 'react-router-dom'; // Corrected import for Link
+import { Link, useLocation } from "react-router-dom"; // Import useLocation
 import ContactOverlay from './components/Contact/ContactOverlay.jsx'; // Import the ContactOverlay component
 
-const Navbar = () => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     const [anchorEl, setAnchorEl] = useState(null); // For the mobile menu
     const [isContactOpen, setIsContactOpen] = useState(false); // For contact overlay visibility
+
+    const location = useLocation(); // Get the current route
+
+    // Check if the current route is "/admin"
+    const isAdminPanel = location.pathname === "/admin";
+
+
 
     // Mobile menu toggle handlers
     const handleMenuClick = (event) => {
@@ -65,6 +73,7 @@ const Navbar = () => {
                         padding: '0 20px',
                     }}
                 >
+
                     {/* Logo */}
                     <Typography
                         component={Link}
@@ -190,6 +199,13 @@ const Navbar = () => {
                             ))}
                         </Menu>
                     </Box>
+                    {/* Sidebar Toggle Button (Only Visible in Admin Panel) */}
+                    {isAdminPanel && (
+                        <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)} sx={{ color: "#80ceff" }}>
+                            {isSidebarOpen ? <CloseIcon /> : <MenuIcon />}
+                        </IconButton>
+                    )}
+
                 </Toolbar>
             </AppBar>
 

@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import {Box, Container, Typography} from "@mui/material";
 import image1 from "../../../assets/Computer.svg";
 import ExperienceSection from "./ExperienceSection.jsx";
 import SkillsetSection from "./SkillsetSection.jsx";
+import "@fontsource/poppins/200.css"; // Import Poppins ExtraLight
 
 const About = () => {
     return (
@@ -23,8 +24,10 @@ const About = () => {
             {/* About Me Section */}
             <Box
                 sx={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontWeight: 200, // ExtraLight weight
                     width: "100%",
-                    maxWidth: "1200px", // Limit the content width
+                    maxWidth: "1200px",
                     padding: "40px 20px",
                     display: "flex",
                     flexDirection: { xs: "column", md: "row" },
@@ -41,25 +44,38 @@ const About = () => {
                     }}
                 >
                     <Typography variant="h3" sx={{ fontWeight: "bold", mb: 3, color: "#7ac7fb" }}>
-                        Know Who <span style={{ color: "#d4b1fb" }}>I'M</span>
+                        Know Who <span style={{ color: "#cdeafa" }}>I'M</span>
                     </Typography>
                     <Typography variant="body1" sx={{ lineHeight: 1.8, fontSize: "1.2rem", mb: 2 }}>
-                        Hi Everyone, I am <span style={{ color: "#d4b1fb" }}>Your Name</span> from{" "}
-                        <span style={{ color: "#7ac7fb" }}>Your Location</span>.
+                        Hi Everyone, I am <span style={{ color: "#cdeafa" }}>Keerthi !</span> from{" "}
+                        <span style={{ color: "#7ac7fb" }}>London, Ontario</span>.
                     </Typography>
                     <Typography variant="body1" sx={{ lineHeight: 1.8, fontSize: "1.2rem", mb: 2 }}>
-                        I am currently employed as a <span style={{ color: "#7ac7fb" }}>Your Role</span> at{" "}
-                        <span style={{ color: "#d4b1fb" }}>Your Company</span>.
+                        I am seeking opportunities as a <span style={{ color: "#7ac7fb" }}>Web Designer/Developer, Game Designer/Developer, Unreal Designer </span>
+                        or a  <span style={{ color: "#7ac7fb" }}>Generalist Programmer </span> , where I can apply my creativity and technical skills to build engaging digital experiences.
+{/*
+
+*/}
                     </Typography>
                     <Typography variant="body1" sx={{ lineHeight: 1.8, fontSize: "1.2rem", mb: 4 }}>
                         Apart from coding, some other activities that I love to do include:
                     </Typography>
-                    <ul>
-                        <li>🎮 Playing Games</li>
-                        <li>✍️ Writing Tech Blogs</li>
-                        <li>🌍 Travelling</li>
+
+                    <ul  >
+
+                        <li>🎨 Designing and Creating Visual Effects</li>
+                        <li>🎥 Content Creation and Video Editing</li>
+                        <li>📂 Project Management and Workflow Optimization</li>
+                        <li>🔧 Version Control and Collaboration with Git</li>
+                        <li>🕹️ Playing Games</li>
+
+
                     </ul>
+
                 </Box>
+
+
+
                 <Box
                     sx={{
                         flex: 1,
@@ -76,8 +92,11 @@ const About = () => {
                 </Box>
             </Box>
 
-<ExperienceSection/>
-            <SkillsetSection/>
+        <ExperienceSection/>
+        <SkillsetSection/>
+
+
+
          </Box>
     );
 };
