@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {TextField, Button, Box, Typography, Link, IconButton, Container, Paper} from "@mui/material";
-import BackgroundImage from "../assets/background.svg";
+import {TextField, Button, Box, Typography, Container, Paper} from "@mui/material";
 
 const adminEmail = "kkvasan99@gmail.com";
 

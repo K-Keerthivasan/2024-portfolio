@@ -62,7 +62,7 @@ const ProjectManager = () => {
 
         try {
             await addDoc(collection(db, "projects"), newProject);
-            setNewProject({ name: "", category: "", description: "", githubUrl: "", image: "" });
+            setNewProject({name: "", category: "", description: "", githubUrl: "", image: ""});
             setSuccessMessage(true); // Show success message
             fetchProjects(); // Refresh the list
         } catch (error) {
@@ -101,7 +101,7 @@ const ProjectManager = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 padding: 3,
-             }}
+            }}
         >
             <Typography variant="h4"
                         sx={{
@@ -115,21 +115,21 @@ const ProjectManager = () => {
 
             {/* Input Fields for Adding New Projects */}
             {/* Input Fields for Adding New Projects */}
-            <Box sx={{ width: "100%", maxWidth: "600px" }}>
+            <Box sx={{width: "100%", maxWidth: "600px"}}>
                 <TextField
                     label="Project Name"
                     value={newProject.name || ""}
-                    onChange={(e) => setNewProject({ ...newProject, name: e.target.value })}
+                    onChange={(e) => setNewProject({...newProject, name: e.target.value})}
                     fullWidth
-                    sx={{ marginBottom: 1, input: { color: "white" }, label: { color: "white" } }}
+                    sx={{marginBottom: 1, input: {color: "white"}, label: {color: "white"}}}
                 />
 
-                <FormControl fullWidth sx={{ marginBottom: 1 }}>
-                    <InputLabel sx={{ color: "white" }}>Category</InputLabel>
+                <FormControl fullWidth sx={{marginBottom: 1}}>
+                    <InputLabel sx={{color: "white"}}>Category</InputLabel>
                     <Select
                         value={newProject.category || ""}
-                        onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
-                        sx={{ color: "white", "& .MuiSelect-icon": { color: "white" } }}
+                        onChange={(e) => setNewProject({...newProject, category: e.target.value})}
+                        sx={{color: "white", "& .MuiSelect-icon": {color: "white"}}}
                     >
                         <MenuItem value="Web Development">Web Development</MenuItem>
                         <MenuItem value="Game Development">Game Development</MenuItem>
@@ -140,58 +140,45 @@ const ProjectManager = () => {
                 <TextField
                     label="Description"
                     value={newProject.description || ""}
-                    onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
+                    onChange={(e) => setNewProject({...newProject, description: e.target.value})}
                     fullWidth
                     multiline
-                    sx={{ marginBottom: 1, input: { color: "white" }, label: { color: "white" } }}
+                    sx={{marginBottom: 1, input: {color: "white"}, label: {color: "white"}}}
                 />
 
                 <TextField
                     label="GitHub URL"
                     value={newProject.githubUrl || ""}
-                    onChange={(e) => setNewProject({ ...newProject, githubUrl: e.target.value })}
+                    onChange={(e) => setNewProject({...newProject, githubUrl: e.target.value})}
                     fullWidth
-                    sx={{ marginBottom: 1, input: { color: "white" }, label: { color: "white" } }}
+                    sx={{marginBottom: 1, input: {color: "white"}, label: {color: "white"}}}
                 />
 
                 <TextField
                     label="Image URL"
                     value={newProject.image || ""}
-                    onChange={(e) => setNewProject({ ...newProject, image: e.target.value })}
+                    onChange={(e) => setNewProject({...newProject, image: e.target.value})}
                     fullWidth
-                    sx={{ marginBottom: 1, input: { color: "white" }, label: { color: "white" } }}
+                    sx={{marginBottom: 1, input: {color: "white"}, label: {color: "white"}}}
                 />
 
-                <Button variant="contained" color="primary" onClick={addProject} sx={{ marginTop: 2, width: "100%", padding: "10px" }}>
+                <Button variant="contained" color="primary" onClick={addProject}
+                        sx={{marginTop: 2, width: "100%", padding: "10px"}}>
                     Add Project
                 </Button>
             </Box>
 
-            {/* Scrollable List */}
-            <Box
-                sx={{
-                    width: "100%",
-                    maxWidth: "900px",
-                    marginTop: 3,
-                    flexGrow: 1,
-
-                    height: "80vh",
-                    maxHeight: "600px",
-                    border: "1px solid rgba(255, 255, 255, 0.2)",
-                    borderRadius: "8px",
-                    padding: 2,
-                    backdropFilter: "blur(8px)",
-                    marginBottom: "100px",
-                }}
-            >
-                <List>
+            <Box sx={{
+             }}>
+                <List sx={{ paddingBottom: "150px" }}>
                     {projects.map((project) => (
-                        <ListItem key={project.id} sx={{display: "flex", color:'white' , alignItems: "center", gap: 2}}>
+                        <ListItem key={project.id} sx={{display: "flex", color: 'white', alignItems: "center", gap: 2}}>
                             <img src={project.image} alt={project.name} width="50" height="50"
                                  style={{borderRadius: "5px"}}/>
                             <ListItemText
-                                primary={<Typography variant="h6" sx={{color:'white'}}  >{project.name}</Typography>}
-                                secondary={<Typography sx={{ color: "white" }}>{`${project.category} - ${project.description}`}</Typography>}                            />
+                                primary={<Typography variant="h6" sx={{color: 'white'}}>{project.name}</Typography>}
+                                secondary={<Typography
+                                    sx={{color: "white"}}>{`${project.category} - ${project.description}`}</Typography>}/>
                             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
                                style={{textDecoration: "none", color: "#80ceff"}}>
                                 GitHub
@@ -205,7 +192,9 @@ const ProjectManager = () => {
                         </ListItem>
                     ))}
                 </List>
+
             </Box>
+
 
             {/* Edit Dialog */}
             <Dialog open={isEditing} onClose={() => setIsEditing(false)}
@@ -225,24 +214,24 @@ const ProjectManager = () => {
                                                                  })} fullWidth
                                                                  sx={{
                                                                      marginBottom: 1,
-                                                                     input: { color: "white" },
-                                                                     label: { color: "white" },
+                                                                     input: {color: "white"},
+                                                                     label: {color: "white"},
                                                                      "& .MuiOutlinedInput-root": {
-                                                                         "& fieldset": { borderColor: "white" }, // Border color
-                                                                         "&:hover fieldset": { borderColor: "#80ceff" }, // Hover effect
+                                                                         "& fieldset": {borderColor: "white"}, // Border color
+                                                                         "&:hover fieldset": {borderColor: "#80ceff"}, // Hover effect
                                                                      }
                                                                  }}
                 />
 
                     <FormControl fullWidth sx={{marginBottom: 1}}>
-                        <InputLabel sx={{color: "white"}} >Category</InputLabel>
+                        <InputLabel sx={{color: "white"}}>Category</InputLabel>
                         <Select
                             value={editingProject?.category || ""}
-                            onChange={(e) => setEditingProject({ ...editingProject, category: e.target.value })}
+                            onChange={(e) => setEditingProject({...editingProject, category: e.target.value})}
                             sx={{
                                 color: "white",
-                                "& .MuiSelect-icon": { color: "white" },
-                                "& fieldset": { borderColor: "white" }
+                                "& .MuiSelect-icon": {color: "white"},
+                                "& fieldset": {borderColor: "white"}
                             }}
                         >
                             <MenuItem value="Web Development">Web Development</MenuItem>
@@ -257,14 +246,14 @@ const ProjectManager = () => {
                                fullWidth multiline
                                sx={{
                                    marginBottom: 1,
-                                   input: { color: "white" }, // 🔥 Ensures input text is white
-                                   label: { color: "white" }, // 🔥 Ensures label text is white
+                                   input: {color: "white"}, // 🔥 Ensures input text is white
+                                   label: {color: "white"}, // 🔥 Ensures label text is white
                                    "& .MuiOutlinedInput-root": {
-                                       "& fieldset": { borderColor: "white" }, // Border color white
-                                       "&:hover fieldset": { borderColor: "#80ceff" }, // Hover effect
+                                       "& fieldset": {borderColor: "white"}, // Border color white
+                                       "&:hover fieldset": {borderColor: "#80ceff"}, // Hover effect
                                    },
-                                   "& .MuiInputBase-root": { color: "white" }, // 🔥 Ensures multi-line text is white
-                                   "& textarea": { color: "white" } // 🔥 Ensures multi-line input text is white
+                                   "& .MuiInputBase-root": {color: "white"}, // 🔥 Ensures multi-line text is white
+                                   "& textarea": {color: "white"} // 🔥 Ensures multi-line input text is white
                                }}
                     />
                     <TextField label="GitHub URL"
@@ -273,14 +262,14 @@ const ProjectManager = () => {
                                fullWidth
                                sx={{
                                    marginBottom: 1,
-                                   input: { color: "white" }, // 🔥 Ensures input text is white
-                                   label: { color: "white" }, // 🔥 Ensures label text is white
+                                   input: {color: "white"}, // 🔥 Ensures input text is white
+                                   label: {color: "white"}, // 🔥 Ensures label text is white
                                    "& .MuiOutlinedInput-root": {
-                                       "& fieldset": { borderColor: "white" }, // Border color white
-                                       "&:hover fieldset": { borderColor: "#80ceff" }, // Hover effect
+                                       "& fieldset": {borderColor: "white"}, // Border color white
+                                       "&:hover fieldset": {borderColor: "#80ceff"}, // Hover effect
                                    },
-                                   "& .MuiInputBase-root": { color: "white" }, // 🔥 Ensures multi-line text is white
-                                   "& textarea": { color: "white" } // 🔥 Ensures multi-line input text is white
+                                   "& .MuiInputBase-root": {color: "white"}, // 🔥 Ensures multi-line text is white
+                                   "& textarea": {color: "white"} // 🔥 Ensures multi-line input text is white
                                }}
                     />
                     <TextField label="Image URL" value={editingProject?.image || ""}
@@ -288,20 +277,20 @@ const ProjectManager = () => {
                                fullWidth
                                sx={{
                                    marginBottom: 1,
-                                   input: { color: "white" }, // 🔥 Ensures input text is white
-                                   label: { color: "white" }, // 🔥 Ensures label text is white
+                                   input: {color: "white"}, // 🔥 Ensures input text is white
+                                   label: {color: "white"}, // 🔥 Ensures label text is white
                                    "& .MuiOutlinedInput-root": {
-                                       "& fieldset": { borderColor: "white" }, // Border color white
-                                       "&:hover fieldset": { borderColor: "#80ceff" }, // Hover effect
+                                       "& fieldset": {borderColor: "white"}, // Border color white
+                                       "&:hover fieldset": {borderColor: "#80ceff"}, // Hover effect
                                    },
-                                   "& .MuiInputBase-root": { color: "white" }, // 🔥 Ensures multi-line text is white
-                                   "& textarea": { color: "white" } // 🔥 Ensures multi-line input text is white
+                                   "& .MuiInputBase-root": {color: "white"}, // 🔥 Ensures multi-line text is white
+                                   "& textarea": {color: "white"} // 🔥 Ensures multi-line input text is white
                                }}
 
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setIsEditing(false)} sx={{color:'#35b2dc'}}>Cancel</Button>
+                    <Button onClick={() => setIsEditing(false)} sx={{color: '#35b2dc'}}>Cancel</Button>
                     <Button
                         onClick={() => {
                             if (editingProject) {
@@ -309,7 +298,7 @@ const ProjectManager = () => {
                             }
                         }}
                         variant="contained"
-                        sx={{ backgroundColor: "#1976D2", color: "white" }}
+                        sx={{backgroundColor: "#1976D2", color: "white"}}
                     >
                         Save
                     </Button>
@@ -319,7 +308,7 @@ const ProjectManager = () => {
                 open={successMessage}
                 autoHideDuration={3000}
                 onClose={() => setSuccessMessage(false)}
-                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                anchorOrigin={{vertical: "top", horizontal: "right"}}
             >
                 <MuiAlert onClose={() => setSuccessMessage(false)} severity="success" variant="filled">
                     Project added successfully!
