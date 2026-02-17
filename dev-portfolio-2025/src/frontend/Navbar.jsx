@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import {useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -15,10 +15,10 @@ import CloseIcon from '@mui/icons-material/Close'; // Sidebar close button
 import Box from '@mui/material/Box';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import FastForwardIcon from '@mui/icons-material/FastForward';
-import { Link, useLocation } from "react-router-dom"; // Import useLocation
+import {Link, useLocation} from "react-router-dom"; // Import useLocation
 import ContactOverlay from './components/Contact/ContactOverlay.jsx'; // Import the ContactOverlay component
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({isSidebarOpen, setIsSidebarOpen}) => {
     const [anchorEl, setAnchorEl] = useState(null); // For the mobile menu
     const [isContactOpen, setIsContactOpen] = useState(false); // For contact overlay visibility
 
@@ -26,7 +26,6 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
     // Check if the current route is "/admin"
     const isAdminPanel = location.pathname === "/admin";
-
 
 
     // Mobile menu toggle handlers
@@ -44,11 +43,11 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     };
 
     const menuItems = [
-        { name: 'Home', icon: <HomeIcon />, link: '/' },
-        { name: 'About', icon: <Person2Icon />, link: '/about' },
-        { name: 'Projects', icon: <WorkHistoryIcon />, link: '/projects' },
-        { name: 'Resume', icon: <SummarizeIcon />, link: '/resume' },
-        { name: 'Blogs', icon: <TopicIcon />, link: '/blogs' },
+        {name: 'Home', icon: <HomeIcon/>, link: '/'},
+        {name: 'About', icon: <Person2Icon/>, link: '/about'},
+        {name: 'Projects', icon: <WorkHistoryIcon/>, link: '/projects'},
+        {name: 'Resume', icon: <SummarizeIcon/>, link: '/resume'},
+        {name: 'Blogs', icon: <TopicIcon/>, link: 'https://blog.kkvasan.ca/'},
     ];
 
     return (
@@ -150,7 +149,8 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
 
                         {/* FastForwardIcon for YouTube */}
-                        <a href="https://kk-film-portfolio.web.app/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://film.kkvasan.ca/"
+                           rel="noopener noreferrer"
                            style={{textDecoration: 'none', color: 'inherit'}}>
                             <IconButton
                                 sx={{
@@ -191,7 +191,13 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                         >
                             {menuItems.map((item) => (
                                 <MenuItem key={item.name} onClick={handleMenuClose}>
-                                    <Link to={item.link} style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                    <Link to={item.link} style={{
+                                        textDecoration: 'none',
+                                        color: 'inherit',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '10px'
+                                    }}>
                                         {item.icon}
                                         {item.name}
                                     </Link>
@@ -201,8 +207,8 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                     </Box>
                     {/* Sidebar Toggle Button (Only Visible in Admin Panel) */}
                     {isAdminPanel && (
-                        <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)} sx={{ color: "#80ceff" }}>
-                            {isSidebarOpen ? <CloseIcon /> : <MenuIcon />}
+                        <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)} sx={{color: "#80ceff"}}>
+                            {isSidebarOpen ? <CloseIcon/> : <MenuIcon/>}
                         </IconButton>
                     )}
 
@@ -210,7 +216,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             </AppBar>
 
             {/* ContactOverlay Component */}
-            <ContactOverlay isOpen={isContactOpen} toggleOverlay={toggleContactOverlay} />
+            <ContactOverlay isOpen={isContactOpen} toggleOverlay={toggleContactOverlay}/>
         </>
     );
 };

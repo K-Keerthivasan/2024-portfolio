@@ -19,9 +19,6 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen, setPage }) => {
                 <ListItem component="button" onClick={() => { setPage("dashboard"); setIsSidebarOpen(false); }}>
                     <ListItemText primary="Dashboard" />
                 </ListItem>
-                <ListItem component="button" onClick={() => { setPage("manage-content"); setIsSidebarOpen(false); }}>
-                    <ListItemText primary="Content Manager" />
-                </ListItem>
                 <ListItem component="button" onClick={() => { setPage("manage-project"); setIsSidebarOpen(false); }}>
                     <ListItemText primary="Project Manager" />
                 </ListItem>

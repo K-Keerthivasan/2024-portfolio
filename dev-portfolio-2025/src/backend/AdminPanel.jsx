@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
-import ContentManager from "./ContentManager";
 import { getAuth, signOut } from "firebase/auth";
 import { CssBaseline, Box, Button } from "@mui/material";
 import Dashboard from "./Dashboard.jsx";
@@ -46,7 +45,6 @@ const AdminPanel = () => {
             {/* Main Content */}
             <Box sx={{ padding: 5, flexGrow: 1 ,    }}>
                 {page === "dashboard" && <Dashboard />}
-                {page === "manage-content" && <ContentManager />}
                 {page === "manage-project" && <ProjectManager />}
             </Box>
 

@@ -50,7 +50,7 @@ const Footer = () => {
             <Box sx={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
                 <IconButton
                     component={Link}
-                    href="https://github.com"
+                    href="https://github.com/K-Keerthivasan"
                     target="_blank"
                     rel="noopener"
                     sx={{ color: '#ffffff', '&:hover': { color: '#80ceff' } }}
@@ -59,7 +59,7 @@ const Footer = () => {
                 </IconButton>
                 <IconButton
                     component={Link}
-                    href="https://twitter.com"
+                    href="https://x.com/_Keerthivasan_K"
                     target="_blank"
                     rel="noopener"
                     sx={{ color: '#ffffff', '&:hover': { color: '#80ceff' } }}
@@ -68,7 +68,7 @@ const Footer = () => {
                 </IconButton>
                 <IconButton
                     component={Link}
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/keerthivasan-k/"
                     target="_blank"
                     rel="noopener"
                     sx={{ color: '#ffffff', '&:hover': { color: '#80ceff' } }}
@@ -77,7 +77,7 @@ const Footer = () => {
                 </IconButton>
                 <IconButton
                     component={Link}
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/kkvasan_/"
                     target="_blank"
                     rel="noopener"
                     sx={{ color: '#ffffff', '&:hover': { color: '#80ceff' } }}

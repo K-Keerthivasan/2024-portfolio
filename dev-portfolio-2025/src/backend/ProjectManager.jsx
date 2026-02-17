@@ -32,6 +32,7 @@ const ProjectManager = () => {
         category: "",
         description: "",
         githubUrl: "",
+        demoUrl: "",
         image: ""
     });
 
@@ -54,7 +55,7 @@ const ProjectManager = () => {
         // Ensure all fields are filled
 
         if (!newProject.name.trim() || !newProject.category.trim() || !newProject.description.trim() ||
-            !newProject.githubUrl.trim() || !newProject.image.trim()) {
+            !newProject.image.trim() || !newProject.demoUrl.trim()) {
             console.error("❌ Missing required fields!");
             alert("Please fill in all fields before adding a project."); // Show an alert to the user
             return;
@@ -62,7 +63,7 @@ const ProjectManager = () => {
 
         try {
             await addDoc(collection(db, "projects"), newProject);
-            setNewProject({name: "", category: "", description: "", githubUrl: "", image: ""});
+            setNewProject({name: "", category: "", description: "", githubUrl: "", demoUrl: "", image: ""});
             setSuccessMessage(true); // Show success message
             fetchProjects(); // Refresh the list
         } catch (error) {
@@ -155,6 +156,15 @@ const ProjectManager = () => {
                 />
 
                 <TextField
+                    label="Demo URL"
+                    value={newProject.demoUrl || ""}
+                    onChange={(e) => setNewProject({...newProject, demoUrl: e.target.value})}
+                    fullWidth
+                    sx={{marginBottom: 1, input: {color: "white"}, label: {color: "white"}}}
+                />
+
+
+                <TextField
                     label="Image URL"
                     value={newProject.image || ""}
                     onChange={(e) => setNewProject({...newProject, image: e.target.value})}
@@ -168,9 +178,8 @@ const ProjectManager = () => {
                 </Button>
             </Box>
 
-            <Box sx={{
-             }}>
-                <List sx={{ paddingBottom: "150px" }}>
+            <Box sx={{}}>
+                <List sx={{paddingBottom: "150px"}}>
                     {projects.map((project) => (
                         <ListItem key={project.id} sx={{display: "flex", color: 'white', alignItems: "center", gap: 2}}>
                             <img src={project.image} alt={project.name} width="50" height="50"
@@ -179,10 +188,19 @@ const ProjectManager = () => {
                                 primary={<Typography variant="h6" sx={{color: 'white'}}>{project.name}</Typography>}
                                 secondary={<Typography
                                     sx={{color: "white"}}>{`${project.category} - ${project.description}`}</Typography>}/>
-                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
-                               style={{textDecoration: "none", color: "#80ceff"}}>
-                                GitHub
-                            </a>
+                            {project.demoUrl && (
+                                <a href={project.demoUrl} target="_blank" rel="noopener noreferrer"
+                                   style={{textDecoration: "none", color: "#c6ff00"}}>
+                                    Demo
+                                </a>
+                            )}
+                            {project.githubUrl && (
+                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
+                                   style={{textDecoration: "none", color: "#80ceff", marginLeft: "10px"}}>
+                                    GitHub
+                                </a>
+                            )}
+
                             <IconButton onClick={() => startEditing(project)} sx={{color: "orange"}}>
                                 <EditIcon/>
                             </IconButton>
@@ -256,6 +274,23 @@ const ProjectManager = () => {
                                    "& textarea": {color: "white"} // 🔥 Ensures multi-line input text is white
                                }}
                     />
+                    <TextField label="Demo URL"
+                               value={editingProject?.demoUrl || ""}
+                               onChange={(e) => setEditingProject({...editingProject, demoUrl: e.target.value})}
+                               fullWidth
+                               sx={{
+                                   marginBottom: 1,
+                                   input: {color: "white"},
+                                   label: {color: "white"},
+                                   "& .MuiOutlinedInput-root": {
+                                       "& fieldset": {borderColor: "white"},
+                                       "&:hover fieldset": {borderColor: "#80ceff"},
+                                   },
+                                   "& .MuiInputBase-root": {color: "white"},
+                                   "& textarea": {color: "white"}
+                               }}
+                    />
+
                     <TextField label="GitHub URL"
                                value={editingProject?.githubUrl || ""}
                                onChange={(e) => setEditingProject({...editingProject, githubUrl: e.target.value})}
